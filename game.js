@@ -3,8 +3,6 @@ function getComputerChoice() {
    return computerChoice[Math.floor(Math.random()*3)]
 }   
 
-const computerSelection = getComputerChoice();
-
 function playRound(playerSelection, computerSelection) {
     if(playerSelection == computerSelection) {
         result.appendChild(itsATie);
@@ -28,12 +26,10 @@ function playRound(playerSelection, computerSelection) {
         result.append(computerWins)
     }
 }
-//console.log("The Computer chose:", computerSelection);
-//console.log("The Player chose:", playerSelection);
 
+const computerSelection = getComputerChoice();
 
-//playRound(playerSelection, computerSelection);
-
+//Event Listeners for each button
 const button1 = document.querySelector('#rock');
 button1.addEventListener('click', function() {playRound("rock", computerSelection)});
 
@@ -43,10 +39,9 @@ button2.addEventListener('click', function () {playRound("paper", computerSelect
 const button3 = document.querySelector('#scissors');
 button3.addEventListener('click', function() {playRound("scissors", computerSelection)});
 
+//DOM setup for the result 
 const result = document.querySelector('.result');
 const h2 = document.createElement('h2');
-
-
 
 const playerWins = document.createElement('h3');
 const computerWins = document.createElement('h3');
@@ -58,4 +53,4 @@ itsATie.textContent = "It's a Tie";
 
 h2.textContent = "The winner is: ";
 result.appendChild(h2);
-//console.log(playerSelection);
+
